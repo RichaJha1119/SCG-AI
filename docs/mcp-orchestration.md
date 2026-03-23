@@ -501,7 +501,7 @@ Example client configuration:
     "scg-ai": {
       "command": "npm",
       "args": ["run", "mcp:start", "--workspace=server"],
-      "cwd": "C:/Users/richafnu/scg-ai"
+      "cwd": "C:/Users/rvash/Salesforce AI/SCG-AI"
     }
   }
 }
