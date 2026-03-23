@@ -1,0 +1,38 @@
+{
+  "name": "scg-ai-server",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "dev": "node index.js",
+    "start": "node index.js",
+    "mcp:start": "node mcp/index.js",
+    "test": "node --test test/aiService.test.js",
+    "stress:lwc": "node test/lwcStressTest.js",
+    "stress:lwc:stability": "node test/lwcStressTest.js --stability",
+    "stress:lwc:tier1": "node test/lwcStressTest.js --tier1",
+    "stress:lwc:tier2": "node test/lwcStressTest.js --tier2",
+    "stress:lwc:tier3": "node test/lwcStressTest.js --tier3",
+    "stress:lwc:tier4": "node test/lwcStressTest.js --tier4",
+    "stress:lwc:core": "node test/lwcStressTest.js --core",
+    "stress:lwc:hard": "node test/lwcStressTest.js --hard",
+    "stress:lwc:master": "node test/lwcStressTest.js --master",
+    "stress:lwc:list": "node test/lwcStressTest.js --list",
+    "test:nested-lwc": "node test/nestedLwcRegression.js"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.27.1",
+    "archiver": "^7.0.1",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "jsforce": "^3.10.14",
+    "jszip": "^3.10.1",
+    "lowdb": "^7.0.1",
+    "openai": "^6.24.0",
+    "pdf-parse": "^1.1.1",
+    "simple-git": "^3.27.0",
+    "uuid": "^11.0.5"
+  }
+}

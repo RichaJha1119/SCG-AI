@@ -1,0 +1,54 @@
+name: Intent Eval
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+
+jobs:
+  intent-eval:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+          cache-dependency-path: package-lock.json
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run intent evaluation
+        run: npm run intent:eval --workspace=client
+
+      - name: Generate intent docs
+        run: npm run intent:docs --workspace=client
+
+      - name: Verify generated docs are up to date
+        run: git diff --exit-code -- docs/intent-eval-cases.md docs/intent-eval-cases-grouped.md
+
+  client-build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+          cache-dependency-path: package-lock.json
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build client
+        run: npm run build --workspace=client

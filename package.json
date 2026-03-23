@@ -1,0 +1,20 @@
+{
+  "name": "scg-ai",
+  "version": "1.0.0",
+  "private": true,
+  "workspaces": [
+    "client",
+    "server"
+  ],
+  "scripts": {
+    "dev": "concurrently \"npm run dev --workspace=server\" \"npm run dev --workspace=client\"",
+    "build": "npm run build --workspace=client",
+    "start": "npm run start --workspace=server",
+    "intent:eval": "npm run intent:eval --workspace=client",
+    "intent:docs": "npm run intent:docs --workspace=client",
+    "intent:refresh": "npm run intent:refresh --workspace=client"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
+}
